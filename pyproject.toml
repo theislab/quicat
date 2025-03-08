@@ -1,0 +1,138 @@
+[tool.poetry]
+name = "quicat"
+version = "0.1.0"
+description = "QUIck Clonal Analysis Toolkit - quicat"
+authors = ["Daniele Lucarelli <daniele.lucarelli@tum.de>"]
+repository = "https://github.com/theislab/quicat"
+documentation = "https://theislab.github.io/quicat/"
+readme = "README.md"
+packages = [{ include = "quicat", from = "src" }]
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+pyfastx = "2.1.0"
+numpy = "1.26"
+joblib = "1.4.2"
+flpc = "0.2.4"
+polars = "1.1.0"
+rapidfuzz = "3.9.4"
+pandas = "2.2.2"
+scikit-learn = "1.5.1"
+scipy = "1.14.0"
+rich = "13.7.1"
+pysam = "0.22.1"
+ahocorasick-rs = "0.22.0"
+pyyaml = "6.0.1"
+click = "8.1.7"
+pyarrow = "17.0.0"
+scanpy = "1.10.3"
+igraph = "0.11.6"
+leidenalg = "^0.10.2"
+seaborn = "0.13.2"
+matplotlib = "3.9.2"
+anndata = "0.10.9"
+cutadapt = "4.9"
+dnaio = "1.2.3"
+edlib = "1.3.9.post1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+deptry = "^0.12.0"
+mypy = "^1.5.1"
+pre-commit = "^3.4.0"
+types-toml = "^0.10.8.20240310"
+types-pyyaml = "^6.0.12.20240808"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.2.7"
+mkdocstrings = {extras = ["python"], version = "^0.23.0"}
+griffe = "^0.37.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "cython"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+files = ["src/quicat"]
+exclude = ["src/quicat/plotting"]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+disallow_untyped_calls = true
+disallow_any_unimported = false
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+allow_untyped_globals = false
+allow_redefinition = false
+
+[tool.poetry.scripts]
+quicat = "quicat.cli.app:cli"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py37"
+line-length = 120
+fix = true
+select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # mccabe
+    "C90",
+    # pycodestyle
+    "E", "W",
+    # pyflakes
+    "F",
+    # pygrep-hooks
+    "PGH",
+    # pyupgrade
+    "UP",
+    # ruff
+    "RUF",
+    # tryceratops
+    "TRY",
+]
+ignore = [
+    # LineTooLong
+    "E501",
+    # DoNotAssignLambda
+    "E731",
+    # Generator
+    "S311"
+
+]
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["S101"]
+"src/quicat/plotting/*" = ["C901"]
+
+
+[tool.deptry.per_rule_ignores]
+DEP003 = ["quicat"]
+DEP002 = ["pyarrow", "leidenalg", "igraph"]
+DEP001 = ["quicat"]

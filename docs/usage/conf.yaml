@@ -1,0 +1,28 @@
+# config.yaml
+
+config:
+  sequencing_technology: "DNA" # Type of sequencing technology used ("DNA", "10x", "Parse", etc.)
+  input: "fastq" # Input file format, can be "fastq" or "bam"
+  paired_end: false # Set to true if using paired-end sequencing data
+  barcodes_path: false # Path to barcodes file, or set to false if not applicable
+  phred33: true # Set to true if the input uses Phred+33 quality scores
+  read_qc_threshold: 20 # Quality control threshold for reads
+  read_qc_percentage: 80 # Minimum percentage of reads that must meet the QC threshold
+  filter_barcodes_relative_abundance: 0.001 # Minimum relative abundance of barcodes to retain
+  filter_barcodes_raw_numbers: null # Minimum raw barcode count to retain (null if not used)
+  reference: "GCTACTTGAT*ATCCTACTTG" # Reference sequence used for alignment
+  contig: null # Contig to extract reads from a bam file, default to unmapped reads '*'
+  flanked_pattern: true # Set to true if the reference sequence is flanked by specific patterns
+  min_read_length: 40 # Minimum length of reads to be retained
+  max_read_length: 40 # Maximum length of reads to be retained
+  read_length: 40 # Fixed read length to be used
+  aln_mismatches: null #The maximum number of mismatches allowed in the alignment. If not None, edlib is used, otherwise Aho-Corasick is used.
+  flanking_mismatches: null #float activates cutadapt to replace the regex matching for flanking regions
+  left_flanking_coverage: null #The minimum bp overlap of the left flanking region for cutadapt, default : length of left flanking region (no partial matches).
+  right_flanking_coverage: null #The minimum bp overlap of the right flanking region for cutadapt, default : length of right flanking region (no partial matches).
+  distance_threshold: 8 # Maximum distance threshold for sequence matching
+  barcode_ratio: 5 # Ratio used for filtering based on barcode abundance
+  n_threads: -1 # Number of threads for processing (-1 for auto-detection)
+
+input_csv: "/path/to/input.csv" # Path to the input CSV file with sample information
+output_path: "/path/to/output" # Directory where output files will be saved

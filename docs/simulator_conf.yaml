@@ -1,0 +1,50 @@
+# General Input/Output Arguments
+general:
+  output_path: "" # Path to save the ground truth CSV file
+  samples: [] # Prefix for the output path. FASTQ files _R1.fastq and _R2.fastq will be appended to this prefix
+  simulation_type: "sc" # Options: 'dna', 'sc'
+  n_threads: 1 # Number of threads to use for parallel processing
+
+# Common Arguments (for both DNA and 10x simulations)
+common:
+  art: False #Wheter if to generate the fastq files directly or just return the sequences fasta to use with ARK
+  flank_left: "AGT" # Sequence to prepend to each barcode
+  flank_right: "TCA" # Sequence to append to each barcode
+  barcode_length: 20 # Length of each barcode
+  min_hamming_dist: 4 # Minimum Hamming distance between barcodes
+  sequence_length: 100 # Total desired length of the extended sequences, including the flanks, sequences will be expanded left and right to reach this length
+  num_pcr_chimeras: 5 # Number of PCR chimeras to generate per each barcode in the ground truth
+  max_pcr_hamming_dist: 2 # Maximum allowed Hamming distance between PCR chimeras and parent barcodes
+  pcr_error_rate: 0.1 # Probability of introducing a mutation during PCR
+  pcr_error_fraction: 0.1 # Fraction of reads(DNA)/UMIs on each cell(SC) to be replaced with PCR chimeras
+
+# For DNA this apply to the barcodes, for 10x this apply to the distribution of cells per clone
+distribution_params:
+  distribution_type: "uniform" # Options: 'uniform', 'random', 'normal', 'powerlaw'
+
+  # For 'uniform' distribution
+  counts: 1 # Uniform count to apply to all barcodes
+
+  # For 'random' distribution
+  max_count: 100 # Maximum count for any barcode
+
+  # For 'normal' distribution
+  mean: 50 # Mean of the normal distribution
+  std_dev: 10 # Standard deviation of the normal distribution
+
+  # For 'powerlaw' distribution
+  exponent: 1.5 # Exponent for the power-law distribution
+
+  min_frequency: 0.001 # Minimum frequency as a percentage of the total, this applies to random, normal and powerlaw distributions
+
+# DNA Specific Arguments
+dna:
+  num_barcodes: 10 # Number of unique barcodes to generate
+
+# sc Arguments
+sc:
+  num_cells: 10 # Number of cells to simulate
+  num_clones: 2 # Number of unique clones to generate
+  cell_bc_length: 16 # Length of each cell barcode
+  umi_length: 10 # Length of each UMI sequence
+  umis_per_cell: 5 # Number of UMIs per cell to simulate (ground truth counts)
