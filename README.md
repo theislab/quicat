@@ -10,4 +10,4 @@ Install with
 pip install quicat
 ```
 
-- **Documentation** <https://theislab.github.io/quicat/>
+- **Documentation** <https://quicat.readthedocs.io/>

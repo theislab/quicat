@@ -1,6 +1,6 @@
 site_name: quiCAT
 repo_url: https://github.com/theislab/quicat
-site_url: https://theislab.github.io/quicat
+site_url: https://quicat.readthedocs.io/
 site_description: Clonal Analays Toolkit - quicat
 site_author: Daniele Lucarelli
 edit_uri: edit/main/docs/
