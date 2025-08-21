@@ -17,11 +17,11 @@ The CLI exposes two primary commands, both of which take a `yaml` configuration 
 
 #### **1. `extract`**
 
-Extract genetic barcodes from sequencing data. [extract documentation]('./usage/extract.md')
+Extract genetic barcodes from sequencing data. [extract documentation](extract.md)
 
 #### **2. `simulate`**
 
-Generate synthetic data for testing and evaluation purposes. [simulate documentation]('./usage/simulate.md')
+Generate synthetic data for testing and evaluation purposes. [simulate documentation](simulate.md)
 
 ---
 

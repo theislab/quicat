@@ -13,6 +13,8 @@ nav:
       - Overview: usage/usage.md
       - extract: usage/extract.md
       - simulate: usage/simulate.md
+  - Tutorials:
+      - Quickstart: tutorials/quickstart.ipynb
   - API:
       - Overview: api/api.md
       - Read: api/read.md
@@ -21,6 +23,7 @@ nav:
   - Contributing: contributing.md
 plugins:
   - search
+  - autorefs
   - mkdocstrings:
       handlers:
         python:
@@ -32,6 +35,8 @@ plugins:
           options:
             show_root_heading: true
             heading_level: 4
+  - mkdocs-jupyter:
+      execute: false
 
 theme:
   name: material
