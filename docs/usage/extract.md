@@ -21,7 +21,10 @@ quicat extract <path_to_yaml>
 
 ## YAML File Example
 
-This file specify all the running parameters for the extract pipeline.
+This file specifies all the running parameters for the extract pipeline. Depending on the parameters provided, QuiCAT will either use the reference-free or reference-based workflow, enable sequencing error correction, and manage error tolerance during the extraction or alignment phases of the respective workflows.
+
+You can find a high-level overview of the QuiCAT extract workflow and how the specified parameters guide the software’s decision-making during execution in the figure below.
+![Overview of the extract workflow](../assets/extract_diagram_flow.png)
 
 ```yaml
 config:
