@@ -3,6 +3,10 @@
 Install `quiCAT` with `pip`:
 
 ```bash
+conda create -n quicat_env "python>=3.11"
+```
+
+```bash
 pip install quicat
 ```
 
