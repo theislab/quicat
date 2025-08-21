@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quicat"
-version = "0.1.1"
+version = "0.1.2"
 description = "QUIck Clonal Analysis Toolkit - quicat"
 authors = ["Daniele Lucarelli <daniele.lucarelli@tum.de>"]
 repository = "https://github.com/theislab/quicat"
